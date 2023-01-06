@@ -27,7 +27,7 @@
   cursor: pointer;
 }
 
-p {
+.copyright {
   font-size: 12px;
   font-weight: 500;
   white-space: nowrap;

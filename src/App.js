@@ -1,12 +1,20 @@
+import Header from './components/Header/Header';
 import HorizontalNav from './components/HorizontalNav/HorizontalNav';
 import VerticalNav from './components/VerticalNav/VerticalNav';
-import './App.css';
+import InnerWrapper from './layout/InnerWrapper/InnerWrapper';
+import OuterWrapper from './layout/OuterWrapper/OuterWrapper';
+import styles from './App.module.css';
 
 function App() {
   return (
-    <div className="App">
+    <div className={styles.app}>
       <HorizontalNav />
-      <VerticalNav />
+      <OuterWrapper>
+        <VerticalNav />
+        <InnerWrapper>
+          <Header />
+        </InnerWrapper>
+      </OuterWrapper>
     </div>
   );
 }

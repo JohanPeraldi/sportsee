@@ -1,0 +1,19 @@
+.header {
+  grid-column: span 4;
+  color: black;
+}
+
+.title {
+  margin-bottom: 41px;
+  font-size: 48px;
+  font-weight: 500;
+}
+
+.name {
+  color: var(--color-primary);
+}
+
+p {
+  font-size: 18px;
+  font-weight: 400;
+}

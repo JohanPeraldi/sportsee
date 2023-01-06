@@ -23,7 +23,7 @@ export default function VerticalNav() {
           <img src={weightIcon} alt='Weight Icon' />
         </li>
       </ul>
-      <p>Copyright, SportSee {year}</p>
+      <p className={styles.copyright}>Copyright, SportSee {year}</p>
     </nav>
   );
 }
