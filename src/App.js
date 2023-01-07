@@ -1,3 +1,4 @@
+import DailyActivity from './components/DailyActivity/DailyActivity';
 import Header from './components/Header/Header';
 import HorizontalNav from './components/HorizontalNav/HorizontalNav';
 import VerticalNav from './components/VerticalNav/VerticalNav';
@@ -13,6 +14,7 @@ function App() {
         <VerticalNav />
         <InnerWrapper>
           <Header />
+          <DailyActivity />
         </InnerWrapper>
       </OuterWrapper>
     </div>
