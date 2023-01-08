@@ -1,0 +1,5 @@
+.barchart {
+  grid-column: span 3;
+  background-color: #fbfbfb;
+  border-radius: 5px;
+}

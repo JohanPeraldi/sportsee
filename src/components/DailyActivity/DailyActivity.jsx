@@ -7,6 +7,8 @@ import {
   XAxis,
   YAxis,
 } from 'recharts';
+import styles from './DailyActivity.module.css';
+
 const data = [
   {
     name: '1',
@@ -65,20 +67,18 @@ export default function DailyActivity() {
     background: '#E60000',
     padding: 6,
   };
-
   const tooltipItemStyle = {
     background: '#E60000',
     color: 'white',
   };
-
   const tooltipLabelStyle = {};
-
   const tooltipWrapperStyle = {
     color: 'orange',
   };
 
   return (
     <BarChart
+      className={styles.barchart}
       width={835}
       height={320}
       data={data}

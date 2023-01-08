@@ -1,0 +1,47 @@
+.macros {
+  grid-row: 2/4;
+  grid-column: 4/5;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  margin-left: 31px;
+}
+
+.macro {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  column-gap: 24px;
+  background-color: #fbfbfb;
+  width: 258px;
+  height: 128px;
+  border-radius: 5px;
+  padding: 32px;
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  row-gap: 2px;
+}
+
+.amount {
+  color: #282D30;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.indicator {
+  color: #74798C;
+  font-size: 14px;
+  font-weight: 500;
+}

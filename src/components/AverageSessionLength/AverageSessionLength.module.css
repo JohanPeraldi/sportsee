@@ -1,0 +1,6 @@
+.linechart {
+  grid-row: 3/4;
+  grid-column: 1/2;
+  background: #FF0000;
+  border-radius: 5px;
+}
