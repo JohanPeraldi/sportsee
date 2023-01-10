@@ -1,0 +1,21 @@
+.wrapper {
+  grid-column: span 4;
+  background-color: #fbfbfb;
+}
+
+.title {
+  color: red;
+}
+
+.nav {
+  font-size: 24px;
+}
+
+.nav > ul {
+  display: flex;
+  padding-left: 0;
+}
+
+.nav > ul > li {
+  margin-right: 20px;
+}
