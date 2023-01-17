@@ -12,68 +12,68 @@ import styles from './DailyActivity.module.css';
 const data = [
   {
     name: '1',
-    'Poids (kg)': 69.8,
-    'Calories brûlées (kCal)': 306,
+    weight: 69.8,
+    burntCalories: 306,
   },
   {
     name: '2',
-    'Poids (kg)': 70,
-    'Calories brûlées (kCal)': 258,
+    weight: 70,
+    burntCalories: 258,
   },
   {
     name: '3',
-    'Poids (kg)': 70.6,
-    'Calories brûlées (kCal)': 356,
+    weight: 70.6,
+    burntCalories: 356,
   },
   {
     name: '4',
-    'Poids (kg)': 70.2,
-    'Calories brûlées (kCal)': 298,
+    weight: 70.2,
+    burntCalories: 298,
   },
   {
     name: '5',
-    'Poids (kg)': 70.4,
-    'Calories brûlées (kCal)': 355,
+    weight: 70.4,
+    burntCalories: 355,
   },
   {
     name: '6',
-    'Poids (kg)': 69.7,
-    'Calories brûlées (kCal)': 402,
+    weight: 69.7,
+    burntCalories: 402,
   },
   {
     name: '7',
-    'Poids (kg)': 69.9,
-    'Calories brûlées (kCal)': 378,
+    weight: 69.9,
+    burntCalories: 378,
   },
   {
     name: '8',
-    'Poids (kg)': 69.2,
-    'Calories brûlées (kCal)': 299,
+    weight: 69.2,
+    burntCalories: 299,
   },
   {
     name: '9',
-    'Poids (kg)': 69.8,
-    'Calories brûlées (kCal)': 236,
+    weight: 69.8,
+    burntCalories: 236,
   },
   {
     name: '10',
-    'Poids (kg)': 70.5,
-    'Calories brûlées (kCal)': 333,
+    weight: 70.5,
+    burntCalories: 333,
   },
 ];
 
 export default function DailyActivity() {
-  const tooltipContentStyle = {
-    background: '#E60000',
-    padding: 6,
-  };
-  const tooltipItemStyle = {
-    background: '#E60000',
-    color: 'white',
-  };
-  const tooltipLabelStyle = {};
-  const tooltipWrapperStyle = {
-    color: 'orange',
+  const CustomTooltip = ({ active, payload }) => {
+    if (active && payload && payload.length) {
+      return (
+        <div className={styles['custom-tooltip']}>
+          <p className={styles['tooltip-info']}>{`${payload[0].value} kg`}</p>
+          <p className={styles['tooltip-info']}>{`${payload[1].value} kCal`}</p>
+        </div>
+      );
+    }
+
+    return null;
   };
 
   return (
@@ -83,28 +83,40 @@ export default function DailyActivity() {
       height={320}
       data={data}
       margin={{
-        top: 77,
-        right: 63,
+        top: 35,
+        right: 35,
         left: 0,
-        bottom: 30,
+        bottom: 35,
       }}
     >
-      <CartesianGrid strokeDasharray="3 3" vertical={false} />
-      <XAxis dataKey="name" tickLine={false} />
+      <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#dedede" />
+      <XAxis dataKey="name" tickLine={false} dy={16} stroke="#9B9EAC" />
       <YAxis
-        datakey="Poids (kg)"
+        axisLine={false}
+        dataKey="weight"
+        domain={[
+          (dataMin) => Math.floor(dataMin),
+          (dataMax) => Math.ceil(dataMax),
+        ]}
+        dx={25}
         orientation="right"
         tickCount="3"
         tickLine={false}
+        type="number"
+        yAxisId="right"
+        stroke="#9B9EAC"
       />
-      <Tooltip
-        contentStyle={tooltipContentStyle}
-        itemStyle={tooltipItemStyle}
-        labelStyle={tooltipLabelStyle}
-        wrapperStyle={tooltipWrapperStyle}
-        offset={42}
-        separator=""
+      <YAxis
+        axisLine={false}
+        dataKey="burntCalories"
+        hide={true}
+        orientation="left"
+        tickCount="3"
+        tickLine={false}
+        type="number"
+        yAxisId="left"
       />
+      <Tooltip content={<CustomTooltip />} offset={42} />
       <Legend
         align="right"
         height={50}
@@ -113,8 +125,22 @@ export default function DailyActivity() {
         verticalAlign="top"
         width={500}
       />
-      <Bar barSize={7} dataKey="Poids (kg)" fill="#000000" />
-      <Bar barSize={7} dataKey="Calories brûlées (kCal)" fill="#e60000" />
+      <Bar
+        barSize={7}
+        dataKey="weight"
+        fill="#000000"
+        name="Poids (kg)"
+        radius={[3, 3, 0, 0]}
+        yAxisId="right"
+      />
+      <Bar
+        barSize={7}
+        dataKey="burntCalories"
+        fill="#e60000"
+        name="Calories brûlées (kCal)"
+        radius={[3, 3, 0, 0]}
+        yAxisId="left"
+      />
     </BarChart>
   );
 }

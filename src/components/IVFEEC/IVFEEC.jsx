@@ -52,21 +52,23 @@ export default function IVFEEC() {
       className={styles.radar}
       cx={130}
       cy={140}
-      outerRadius={70}
+      data={data}
+      innerRadius={20}
+      outerRadius={90}
       width={258}
       height={263}
-      data={data}
     >
-      <PolarGrid />
-      <PolarAngleAxis dataKey="factor" />
-      <PolarRadiusAxis axisLine={false} tick={false} />
-      <Radar
-        name="Thomas"
-        dataKey="A"
-        stroke="#ff0101"
-        fill="#ff0101"
-        fillOpacity={0.7}
+      <PolarGrid radialLines={false} />
+      <PolarAngleAxis
+        dataKey="factor"
+        fontSize={12}
+        fontWeight={500}
+        dy={5}
+        stroke="white"
+        tickLine={false}
       />
+      <PolarRadiusAxis axisLine={false} tick={false} />
+      <Radar dataKey="A" stroke="#ff0101" fill="#ff0101" fillOpacity={0.7} />
     </RadarChart>
   );
 }

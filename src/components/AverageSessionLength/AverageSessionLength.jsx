@@ -58,11 +58,23 @@ export default function AverageSessionLength() {
       width={258}
       height={263}
       data={data}
-      margin={{ top: 30, right: 20, left: 20, bottom: 20 }}
+      margin={{ top: 80, right: 20, left: 20, bottom: 50 }}
     >
       <CartesianGrid horizontal={false} vertical={false} />
-      <XAxis axisLine={false} dataKey="dayOfWeek" tickLine={false} />
-      <YAxis hide={true} />
+      <XAxis
+        axisLine={false}
+        dataKey="dayOfWeek"
+        tickLine={false}
+        dy={30}
+        stroke="white"
+      />
+      <YAxis
+        hide={true}
+        domain={[
+          (dataMin) => Math.floor(dataMin),
+          (dataMax) => Math.ceil(dataMax),
+        ]}
+      />
       <Tooltip
         content={renderTooltip}
         offset={15}
