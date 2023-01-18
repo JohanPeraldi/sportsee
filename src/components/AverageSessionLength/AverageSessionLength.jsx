@@ -82,7 +82,13 @@ export default function AverageSessionLength() {
         wrapperStyle={tooltipWrapperStyle}
       />
       <Legend payload={[]} />
-      <Line type="monotone" dataKey="length" stroke="white" />
+      <Line
+        type="monotone"
+        dataKey="length"
+        dot={false}
+        stroke="white"
+        strokeWidth={2}
+      />
     </LineChart>
   );
 }
