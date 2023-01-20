@@ -1,0 +1,28 @@
+.wrapper {
+  position: relative;
+  grid-row: 3/4;
+  grid-column: 3/4;
+}
+
+.chart li span {
+  color: #20253a !important;
+}
+
+.score-percentage {
+  position: absolute;
+  top: 20%;
+  left: 33%;
+  font-size: 26px;
+  font-weight: 700;
+  color: #282d30;
+  width: 25%;
+  text-align: center;
+  line-height: 1.5;
+}
+
+.text {
+  display: block;
+  font-size: 16px;
+  font-weight: 500;
+  color: #74798c;
+}

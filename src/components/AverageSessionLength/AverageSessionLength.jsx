@@ -53,42 +53,45 @@ export default function AverageSessionLength() {
   };
 
   return (
-    <LineChart
-      className={styles.linechart}
-      width={258}
-      height={263}
-      data={data}
-      margin={{ top: 80, right: 20, left: 20, bottom: 50 }}
-    >
-      <CartesianGrid horizontal={false} vertical={false} />
-      <XAxis
-        axisLine={false}
-        dataKey="dayOfWeek"
-        tickLine={false}
-        dy={30}
-        stroke="white"
-      />
-      <YAxis
-        hide={true}
-        domain={[
-          (dataMin) => Math.floor(dataMin),
-          (dataMax) => Math.ceil(dataMax),
-        ]}
-      />
-      <Tooltip
-        content={renderTooltip}
-        offset={15}
-        separator=" "
-        wrapperStyle={tooltipWrapperStyle}
-      />
-      <Legend payload={[]} />
-      <Line
-        type="monotone"
-        dataKey="length"
-        dot={false}
-        stroke="white"
-        strokeWidth={2}
-      />
-    </LineChart>
+    <article className={styles.wrapper}>
+      <h2 className={styles.title}>Durée moyenne des sessions</h2>
+      <LineChart
+        className={styles.linechart}
+        width={258}
+        height={263}
+        data={data}
+        margin={{ top: 80, right: 20, left: 20, bottom: 50 }}
+      >
+        <CartesianGrid horizontal={false} vertical={false} />
+        <XAxis
+          axisLine={false}
+          dataKey="dayOfWeek"
+          tickLine={false}
+          dy={30}
+          stroke="white"
+        />
+        <YAxis
+          hide={true}
+          domain={[
+            (dataMin) => Math.floor(dataMin),
+            (dataMax) => Math.ceil(dataMax),
+          ]}
+        />
+        <Tooltip
+          content={renderTooltip}
+          offset={15}
+          separator=" "
+          wrapperStyle={tooltipWrapperStyle}
+        />
+        <Legend payload={[]} />
+        <Line
+          type="monotone"
+          dataKey="length"
+          dot={false}
+          stroke="white"
+          strokeWidth={2}
+        />
+      </LineChart>
+    </article>
   );
 }

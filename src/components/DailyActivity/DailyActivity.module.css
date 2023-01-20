@@ -1,7 +1,18 @@
-.barchart {
+.wrapper {
+  position: relative;
   grid-column: span 3;
   background-color: #fbfbfb;
+  color: #20253a;
   border-radius: 5px;
+  font-size: 14px;
+}
+
+.title {
+  position: absolute;
+  top: 24px;
+  left: 32px;
+  font-size: 15px;
+  font-weight: 500;
 }
 
 .custom-tooltip {
@@ -15,4 +26,16 @@
 .tooltip-info {
   font-size: inherit;
   font-weight: inherit;
+}
+
+li:first-of-type {
+  margin-right: 32px !important;
+}
+
+li span {
+  color: #74798c !important;
+}
+
+li > svg {
+  margin-right: 10px !important;
 }
