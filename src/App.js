@@ -29,18 +29,18 @@ function App() {
     console.log('User id: ', data.data.id);
     console.log('User first name: ', data.data.userInfos.firstName);
     console.groupEnd();
-  }
 
-  return (
-    <div className={styles.app}>
-      <Header />
-      <DailyActivity />
-      <AverageSessionLength />
-      <IVFEEC />
-      <Score />
-      <Macros />
-    </div>
-  );
+    return (
+      <div className={styles.app}>
+        <Header firstName={data.data.userInfos.firstName} />
+        <DailyActivity />
+        <AverageSessionLength />
+        <IVFEEC />
+        <Score />
+        <Macros />
+      </div>
+    );
+  }
 }
 
 export default App;
