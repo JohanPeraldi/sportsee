@@ -2,7 +2,6 @@ import styles from './Header.module.css';
 
 export default function Header(props) {
   const firstName = props.firstName;
-  console.log(firstName);
 
   return (
     <header className={styles.header}>

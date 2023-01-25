@@ -9,60 +9,7 @@ import {
 } from 'recharts';
 import styles from './DailyActivity.module.css';
 
-const data = [
-  {
-    name: '1',
-    weight: 69.8,
-    burntCalories: 306,
-  },
-  {
-    name: '2',
-    weight: 70,
-    burntCalories: 258,
-  },
-  {
-    name: '3',
-    weight: 70.6,
-    burntCalories: 356,
-  },
-  {
-    name: '4',
-    weight: 70.2,
-    burntCalories: 298,
-  },
-  {
-    name: '5',
-    weight: 70.4,
-    burntCalories: 355,
-  },
-  {
-    name: '6',
-    weight: 69.7,
-    burntCalories: 402,
-  },
-  {
-    name: '7',
-    weight: 69.9,
-    burntCalories: 378,
-  },
-  {
-    name: '8',
-    weight: 69.2,
-    burntCalories: 299,
-  },
-  {
-    name: '9',
-    weight: 69.8,
-    burntCalories: 236,
-  },
-  {
-    name: '10',
-    weight: 70.5,
-    burntCalories: 333,
-  },
-];
-
-export default function DailyActivity() {
+export default function DailyActivity(props) {
   const CustomTooltip = ({ active, payload }) => {
     if (active && payload && payload.length) {
       return (
@@ -75,6 +22,14 @@ export default function DailyActivity() {
 
     return null;
   };
+  const data = props.data;
+  const formatedData = data.map((session, index) => {
+    return {
+      calories: session.calories,
+      day: (index + 1).toString(),
+      kilogram: session.kilogram,
+    };
+  });
 
   return (
     <article className={styles.wrapper}>
@@ -82,7 +37,7 @@ export default function DailyActivity() {
       <BarChart
         width={835}
         height={320}
-        data={data}
+        data={formatedData}
         margin={{
           top: 35,
           right: 35,
@@ -95,13 +50,13 @@ export default function DailyActivity() {
           vertical={false}
           stroke="#dedede"
         />
-        <XAxis dataKey="name" tickLine={false} dy={16} stroke="#9B9EAC" />
+        <XAxis dataKey={'day'} tickLine={false} dy={16} stroke="#9B9EAC" />
         <YAxis
           axisLine={false}
-          dataKey="weight"
+          dataKey="kilogram"
           domain={[
-            (dataMin) => Math.floor(dataMin),
-            (dataMax) => Math.ceil(dataMax),
+            (dataMin) => Math.floor(dataMin - 1),
+            (dataMax) => Math.ceil(dataMax + 1),
           ]}
           dx={25}
           orientation="right"
@@ -113,7 +68,11 @@ export default function DailyActivity() {
         />
         <YAxis
           axisLine={false}
-          dataKey="burntCalories"
+          dataKey="calories"
+          domain={[
+            (dataMin) => Math.floor(dataMin - 100),
+            (dataMax) => Math.ceil(dataMax + 100),
+          ]}
           hide={true}
           orientation="left"
           tickCount="3"
@@ -132,7 +91,7 @@ export default function DailyActivity() {
         />
         <Bar
           barSize={7}
-          dataKey="weight"
+          dataKey="kilogram"
           fill="#000000"
           name="Poids (kg)"
           radius={[3, 3, 0, 0]}
@@ -140,7 +99,7 @@ export default function DailyActivity() {
         />
         <Bar
           barSize={7}
-          dataKey="burntCalories"
+          dataKey="calories"
           fill="#e60000"
           name="Calories brûlées (kCal)"
           radius={[3, 3, 0, 0]}

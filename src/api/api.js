@@ -12,3 +12,9 @@ export async function getUserInfo(id) {
 
   return response.data;
 }
+
+export async function getActivityInfo(id) {
+  const response = await axios(baseUrl + id + '/activity');
+
+  return response.data;
+}
