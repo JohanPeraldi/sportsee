@@ -1,21 +1,22 @@
 import { RadialBarChart, RadialBar, Legend } from 'recharts';
 import styles from './Score.module.css';
 
-const scorePercentage = 88;
 const startAngle = 90;
-const data = [
-  {
-    name: 'Score',
-    percentage: scorePercentage,
-    fill: '#ff0000',
-  },
-];
 const wrapperStyle = {
   top: 10,
   left: 10,
 };
 
-export default function Score() {
+export default function Score(props) {
+  const scorePercentage = props.score * 100;
+  const data = [
+    {
+      name: 'Score',
+      percentage: scorePercentage,
+      fill: '#ff0000',
+    },
+  ];
+
   return (
     <article className={styles.wrapper}>
       <p className={styles['score-percentage']}>
@@ -36,17 +37,7 @@ export default function Score() {
         startAngle={startAngle}
         endAngle={startAngle + scorePercentage * 3.6}
       >
-        <RadialBar
-          /* label prop does not seem to allow positioning inside chart circle */
-          /* label={{
-            position: 'inside',
-            fill: '#282D30',
-            fontSize: '30',
-            fontWeight: '500',
-          }} */
-          dataKey="percentage"
-          cornerRadius={5}
-        />
+        <RadialBar dataKey="percentage" cornerRadius={5} />
         <Legend
           iconSize={0}
           width={20}
