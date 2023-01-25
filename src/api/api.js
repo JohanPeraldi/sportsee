@@ -24,3 +24,9 @@ export async function getAverageSessionLength(id) {
 
   return response.data;
 }
+
+export async function getPerformanceData(id) {
+  const response = await axios(baseUrl + id + '/performance');
+
+  return response.data;
+}
