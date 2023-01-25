@@ -56,11 +56,10 @@ export default function DailyActivity(props) {
           dataKey="kilogram"
           domain={[
             (dataMin) => Math.floor(dataMin - 1),
-            (dataMax) => Math.ceil(dataMax + 1),
+            (dataMax) => Math.ceil(dataMax),
           ]}
           dx={25}
           orientation="right"
-          tickCount="3"
           tickLine={false}
           type="number"
           yAxisId="right"
@@ -75,7 +74,6 @@ export default function DailyActivity(props) {
           ]}
           hide={true}
           orientation="left"
-          tickCount="3"
           tickLine={false}
           type="number"
           yAxisId="left"
