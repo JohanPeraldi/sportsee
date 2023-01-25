@@ -44,7 +44,7 @@ function App() {
         <AverageSessionLength data={sessionsLength.data.sessions} />
         <IVFEEC data={performanceData.data} />
         <Score score={data.data.todayScore || data.data.score} />
-        <Macros />
+        <Macros data={data.data.keyData} />
       </div>
     );
   }
