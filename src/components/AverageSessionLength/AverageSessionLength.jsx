@@ -9,47 +9,30 @@ import {
 } from 'recharts';
 import styles from './AverageSessionLength.module.css';
 
-const data = [
-  {
-    dayOfWeek: 'L',
-    length: 73,
-  },
-  {
-    dayOfWeek: 'M',
-    length: 78,
-  },
-  {
-    dayOfWeek: 'M',
-    length: 55,
-  },
-  {
-    dayOfWeek: 'J',
-    length: 0,
-  },
-  {
-    dayOfWeek: 'V',
-    length: 45,
-  },
-  {
-    dayOfWeek: 'S',
-    length: 68,
-  },
-  {
-    dayOfWeek: 'D',
-    length: 0,
-  },
-];
-
-export default function AverageSessionLength() {
+export default function AverageSessionLength(props) {
+  const data = props.data;
+  const formatedData = data.map((day, index) => {
+    const days = ['L', 'M', 'M', 'J', 'V', 'S', 'D'];
+    return {
+      day: days[index],
+      sessionLength: day.sessionLength,
+    };
+  });
   const tooltipWrapperStyle = {
     background: 'white',
     color: 'black',
     padding: 6,
   };
-  const renderTooltip = function () {
-    const day = 0;
-    const dailySessionLength = `${data[day].length} min`;
-    return dailySessionLength;
+  const CustomTooltip = ({ active, payload }) => {
+    if (active && payload && payload.length) {
+      return (
+        <div className={styles['custom-tooltip']}>
+          <p className={styles['tooltip-text']}>{`${payload[0].value} min`}</p>
+        </div>
+      );
+    }
+
+    return null;
   };
 
   return (
@@ -59,13 +42,13 @@ export default function AverageSessionLength() {
         className={styles.linechart}
         width={258}
         height={263}
-        data={data}
+        data={formatedData}
         margin={{ top: 80, right: 20, left: 20, bottom: 50 }}
       >
         <CartesianGrid horizontal={false} vertical={false} />
         <XAxis
           axisLine={false}
-          dataKey="dayOfWeek"
+          dataKey="day"
           tickLine={false}
           dy={30}
           stroke="white"
@@ -78,7 +61,7 @@ export default function AverageSessionLength() {
           ]}
         />
         <Tooltip
-          content={renderTooltip}
+          content={CustomTooltip}
           offset={15}
           separator=" "
           wrapperStyle={tooltipWrapperStyle}
@@ -86,7 +69,7 @@ export default function AverageSessionLength() {
         <Legend payload={[]} />
         <Line
           type="monotone"
-          dataKey="length"
+          dataKey="sessionLength"
           dot={false}
           stroke="white"
           strokeWidth={2}

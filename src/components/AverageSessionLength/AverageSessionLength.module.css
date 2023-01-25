@@ -18,3 +18,9 @@
   background: #ff0000;
   border-radius: 5px;
 }
+
+.custom-tooltip > .tooltip-text {
+  font-size: 12px;
+  font-weight: 500;
+  margin: 6px;
+}

@@ -18,3 +18,9 @@ export async function getActivityInfo(id) {
 
   return response.data;
 }
+
+export async function getAverageSessionLength(id) {
+  const response = await axios(baseUrl + id + '/average-sessions');
+
+  return response.data;
+}
