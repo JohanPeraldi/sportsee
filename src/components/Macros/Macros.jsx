@@ -5,10 +5,8 @@ import proteinIcon from '../../assets/svg/protein-icon.svg';
 import styles from './Macros.module.css';
 
 export default function Macros(props) {
-  const calorieCount = props.data.calorieCount;
-  const proteinCount = props.data.proteinCount;
-  const carbohydrateCount = props.data.carbohydrateCount;
-  const lipidCount = props.data.lipidCount;
+  const { calorieCount, proteinCount, carbohydrateCount, lipidCount } =
+    props.data;
 
   return (
     <article className={styles.macros}>

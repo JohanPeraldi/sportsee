@@ -8,19 +8,12 @@ const wrapperStyle = {
 };
 
 export default function Score(props) {
-  const scorePercentage = props.score * 100;
-  const data = [
-    {
-      name: 'Score',
-      percentage: scorePercentage,
-      fill: '#ff0000',
-    },
-  ];
+  const data = props.data;
 
   return (
     <article className={styles.wrapper}>
       <p className={styles['score-percentage']}>
-        {scorePercentage}%
+        {data.percentage}%
         <span className={styles.text}> de votre objectif</span>
       </p>
       <RadialBarChart
@@ -32,10 +25,10 @@ export default function Score(props) {
         innerRadius={90}
         outerRadius={90}
         barSize={10}
-        data={data}
+        data={[data]}
         /* A startAngle of 90 corresponds to the "12 o'clock" position on the chart circle. An endAngle value is necessary to build an arc that is proportional to the user's score percentage. */
         startAngle={startAngle}
-        endAngle={startAngle + scorePercentage * 3.6}
+        endAngle={startAngle + data.percentage * 3.6}
       >
         <RadialBar dataKey="percentage" cornerRadius={5} />
         <Legend

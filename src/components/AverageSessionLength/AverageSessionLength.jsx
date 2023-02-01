@@ -11,13 +11,6 @@ import styles from './AverageSessionLength.module.css';
 
 export default function AverageSessionLength(props) {
   const data = props.data;
-  const formatedData = data.map((day, index) => {
-    const days = ['L', 'M', 'M', 'J', 'V', 'S', 'D'];
-    return {
-      day: days[index],
-      sessionLength: day.sessionLength,
-    };
-  });
   const tooltipWrapperStyle = {
     background: 'white',
     color: 'black',
@@ -42,7 +35,7 @@ export default function AverageSessionLength(props) {
         className={styles.linechart}
         width={258}
         height={263}
-        data={formatedData}
+        data={data}
         margin={{ top: 80, right: 20, left: 20, bottom: 50 }}
       >
         <CartesianGrid horizontal={false} vertical={false} />

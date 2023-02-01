@@ -23,13 +23,6 @@ export default function DailyActivity(props) {
     return null;
   };
   const data = props.data;
-  const formatedData = data.map((session, index) => {
-    return {
-      calories: session.calories,
-      day: (index + 1).toString(),
-      kilogram: session.kilogram,
-    };
-  });
 
   return (
     <article className={styles.wrapper}>
@@ -37,7 +30,7 @@ export default function DailyActivity(props) {
       <BarChart
         width={835}
         height={320}
-        data={formatedData}
+        data={data}
         margin={{
           top: 35,
           right: 35,

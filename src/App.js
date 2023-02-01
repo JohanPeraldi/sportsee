@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { useParams } from 'react-router-dom';
 import {
-  getUserInfo,
+  getUserData,
   getActivityInfo,
   getAverageSessionLength,
   getPerformanceData,
@@ -15,15 +15,19 @@ import Score from './components/Score/Score';
 import styles from './App.module.css';
 
 function App() {
-  const [data, setData] = useState();
+  const [firstName, setFirstName] = useState();
   const [activityData, setActivityData] = useState();
   const [sessionsLength, setSessionsLength] = useState();
   const [performanceData, setPerformanceData] = useState();
+  const [scoreData, setScoreData] = useState();
+  const [keyData, setKeyData] = useState();
   const { id } = useParams();
 
   const fetchData = useCallback(async () => {
-    const res = await getUserInfo(id);
-    setData(res);
+    const res = await getUserData(id);
+    setFirstName(res.firstName);
+    setScoreData(res.scoreData);
+    setKeyData(res.keyData);
     const activityRes = await getActivityInfo(id);
     setActivityData(activityRes);
     const sessionLengthRes = await getAverageSessionLength(id);
@@ -36,15 +40,22 @@ function App() {
     fetchData();
   }, [fetchData]);
 
-  if (data && activityData && sessionsLength && performanceData) {
+  if (
+    firstName &&
+    activityData &&
+    sessionsLength &&
+    performanceData &&
+    scoreData &&
+    keyData
+  ) {
     return (
       <div className={styles.app}>
-        <Header firstName={data.data.userInfos.firstName} />
-        <DailyActivity data={activityData.data.sessions} />
-        <AverageSessionLength data={sessionsLength.data.sessions} />
-        <IVFEEC data={performanceData.data} />
-        <Score score={data.data.todayScore || data.data.score} />
-        <Macros data={data.data.keyData} />
+        <Header firstName={firstName} />
+        <DailyActivity data={activityData} />
+        <AverageSessionLength data={sessionsLength} />
+        <IVFEEC data={performanceData} />
+        <Score data={scoreData} />
+        <Macros data={keyData} />
       </div>
     );
   }
