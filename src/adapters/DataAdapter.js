@@ -1,12 +1,12 @@
 export default class DataAdapter {
   constructor(data) {
-    this.data = data;
+    this.data = data.data.data;
   }
   getFirstName() {
-    return this.data.data.data.userInfos.firstName;
+    return this.data.userInfos.firstName;
   }
   getActivityData() {
-    const formattedData = this.data.data.data.sessions.map((session, index) => {
+    const formattedData = this.data.sessions.map((session, index) => {
       return {
         calories: session.calories,
         day: (index + 1).toString(),
@@ -17,7 +17,7 @@ export default class DataAdapter {
     return formattedData;
   }
   getSessionLengthData() {
-    const data = this.data.data.data.sessions;
+    const data = this.data.sessions;
     const formattedData = data.map((day, index) => {
       const days = ['L', 'M', 'M', 'J', 'V', 'S', 'D'];
       return {
@@ -29,7 +29,7 @@ export default class DataAdapter {
     return formattedData;
   }
   getPerformanceData() {
-    const data = this.data.data.data;
+    const data = this.data.data;
     const factors = [
       'Cardio',
       'Energie',
@@ -38,7 +38,7 @@ export default class DataAdapter {
       'Vitesse',
       'Intensité',
     ];
-    const formattedData = data.data.map((el) => {
+    const formattedData = data.map((el) => {
       return {
         factor: factors[el.kind - 1],
         value: el.value,
@@ -49,7 +49,7 @@ export default class DataAdapter {
     return reverseFormattedData;
   }
   getScoreData() {
-    const score = this.data.data.data.todayScore || this.data.data.data.score;
+    const score = this.data.todayScore || this.data.score;
     const scorePercentage = score * 100;
     return {
       name: 'Score',
@@ -58,6 +58,6 @@ export default class DataAdapter {
     };
   }
   getKeyData() {
-    return this.data.data.data.keyData;
+    return this.data.keyData;
   }
 }
