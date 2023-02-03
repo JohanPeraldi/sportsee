@@ -1,3 +1,5 @@
+import React from 'react';
+import PropTypes from 'prop-types';
 import {
   BarChart,
   Bar,
@@ -9,20 +11,21 @@ import {
 } from 'recharts';
 import styles from './DailyActivity.module.css';
 
-export default function DailyActivity(props) {
-  const CustomTooltip = ({ active, payload }) => {
-    if (active && payload && payload.length) {
-      return (
-        <div className={styles['custom-tooltip']}>
-          <p className={styles['tooltip-info']}>{`${payload[0].value} kg`}</p>
-          <p className={styles['tooltip-info']}>{`${payload[1].value} kCal`}</p>
-        </div>
-      );
-    }
+function CustomTooltip({ active, payload }) {
+  if (active && payload && payload.length) {
+    return (
+      <div className={styles['custom-tooltip']}>
+        <p className={styles['tooltip-info']}>{`${payload[0].value} kg`}</p>
+        <p className={styles['tooltip-info']}>{`${payload[1].value} kCal`}</p>
+      </div>
+    );
+  }
 
-    return null;
-  };
-  const data = props.data;
+  return null;
+}
+
+export default function DailyActivity(props) {
+  const { data } = props;
 
   return (
     <article className={styles.wrapper}>
@@ -43,7 +46,7 @@ export default function DailyActivity(props) {
           vertical={false}
           stroke="#dedede"
         />
-        <XAxis dataKey={'day'} tickLine={false} dy={16} stroke="#9B9EAC" />
+        <XAxis dataKey="day" tickLine={false} dy={16} stroke="#9B9EAC" />
         <YAxis
           axisLine={false}
           dataKey="kilogram"
@@ -65,7 +68,7 @@ export default function DailyActivity(props) {
             (dataMin) => Math.floor(dataMin - 100),
             (dataMax) => Math.ceil(dataMax + 100),
           ]}
-          hide={true}
+          hide
           orientation="left"
           tickLine={false}
           type="number"
@@ -100,3 +103,14 @@ export default function DailyActivity(props) {
     </article>
   );
 }
+
+CustomTooltip.propTypes = {
+  active: PropTypes.node.isRequired,
+  payload: PropTypes.node.isRequired,
+  length: PropTypes.number.isRequired,
+  value: PropTypes.node.isRequired,
+};
+
+DailyActivity.propTypes = {
+  data: PropTypes.node.isRequired,
+};

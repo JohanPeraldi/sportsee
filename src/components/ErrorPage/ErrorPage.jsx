@@ -1,3 +1,4 @@
+import React from 'react';
 import { Link } from 'react-router-dom';
 import HorizontalNav from '../HorizontalNav/HorizontalNav';
 import InnerWrapper from '../../layout/InnerWrapper/InnerWrapper';
@@ -14,9 +15,11 @@ export default function ErrorPage() {
         <InnerWrapper>
           <div className={styles.wrapper}>
             <h1 className={styles.title}>Oulala!</h1>
-            <p className={styles.message}>Désolé, cette page n'existe pas.</p>
+            <p className={styles.message}>
+              `Désolé, cette page n&apos;existe pas.`
+            </p>
             <p>
-              <Link to={'/'}>Retour à la page principale</Link>
+              <Link to="/">Retour à la page principale</Link>
             </p>
           </div>
         </InnerWrapper>

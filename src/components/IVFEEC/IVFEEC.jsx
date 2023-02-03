@@ -1,3 +1,5 @@
+import React from 'react';
+import PropTypes from 'prop-types';
 import {
   Radar,
   RadarChart,
@@ -8,7 +10,7 @@ import {
 import styles from './IVFEEC.module.css';
 
 export default function IVFEEC(props) {
-  const data = props.data;
+  const { data } = props;
 
   return (
     <RadarChart
@@ -40,3 +42,7 @@ export default function IVFEEC(props) {
     </RadarChart>
   );
 }
+
+IVFEEC.propTypes = {
+  data: PropTypes.node.isRequired,
+};

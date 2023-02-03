@@ -1,3 +1,5 @@
+import React from 'react';
+import PropTypes from 'prop-types';
 import {
   CartesianGrid,
   Legend,
@@ -9,23 +11,24 @@ import {
 } from 'recharts';
 import styles from './AverageSessionLength.module.css';
 
+function CustomTooltip({ active, payload }) {
+  if (active && payload && payload.length) {
+    return (
+      <div className={styles['custom-tooltip']}>
+        <p className={styles['tooltip-text']}>{`${payload[0].value} min`}</p>
+      </div>
+    );
+  }
+
+  return null;
+}
+
 export default function AverageSessionLength(props) {
-  const data = props.data;
+  const { data } = props;
   const tooltipWrapperStyle = {
     background: 'white',
     color: 'black',
     padding: 6,
-  };
-  const CustomTooltip = ({ active, payload }) => {
-    if (active && payload && payload.length) {
-      return (
-        <div className={styles['custom-tooltip']}>
-          <p className={styles['tooltip-text']}>{`${payload[0].value} min`}</p>
-        </div>
-      );
-    }
-
-    return null;
   };
 
   return (
@@ -47,7 +50,7 @@ export default function AverageSessionLength(props) {
           stroke="white"
         />
         <YAxis
-          hide={true}
+          hide
           domain={[
             (dataMin) => Math.floor(dataMin),
             (dataMax) => Math.ceil(dataMax),
@@ -71,3 +74,14 @@ export default function AverageSessionLength(props) {
     </article>
   );
 }
+
+AverageSessionLength.propTypes = {
+  data: PropTypes.node.isRequired,
+};
+
+CustomTooltip.propTypes = {
+  active: PropTypes.node.isRequired,
+  payload: PropTypes.node.isRequired,
+  length: PropTypes.number.isRequired,
+  value: PropTypes.node.isRequired,
+};

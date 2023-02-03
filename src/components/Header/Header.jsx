@@ -1,7 +1,9 @@
+import React from 'react';
+import PropTypes from 'prop-types';
 import styles from './Header.module.css';
 
 export default function Header(props) {
-  const firstName = props.firstName;
+  const { firstName } = props;
 
   return (
     <header className={styles.header}>
@@ -12,3 +14,7 @@ export default function Header(props) {
     </header>
   );
 }
+
+Header.propTypes = {
+  firstName: PropTypes.string.isRequired,
+};

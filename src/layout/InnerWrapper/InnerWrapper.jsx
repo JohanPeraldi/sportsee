@@ -1,8 +1,11 @@
+import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './InnerWrapper.module.css';
 
 export default function InnerWrapper(props) {
-  return <div className={styles.wrapper}>{props.children}</div>;
+  const { children } = props;
+
+  return <div className={styles.wrapper}>{children}</div>;
 }
 
 InnerWrapper.propTypes = {

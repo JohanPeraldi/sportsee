@@ -1,3 +1,4 @@
+import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from './RootNavigation.module.css';
 
@@ -8,10 +9,10 @@ export default function RootNavigation() {
       <nav className={styles.nav}>
         <ul>
           <li>
-            <Link to={'/accueil/user/18'}>Cecilia</Link>
+            <Link to="/accueil/user/18">Cecilia</Link>
           </li>
           <li>
-            <Link to={'/accueil/user/12'}>Karl</Link>
+            <Link to="/accueil/user/12">Karl</Link>
           </li>
         </ul>
       </nav>

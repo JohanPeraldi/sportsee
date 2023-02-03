@@ -1,3 +1,4 @@
+import React from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../assets/svg/logo.svg';
 import styles from './HorizontalNav.module.css';
@@ -5,7 +6,7 @@ import styles from './HorizontalNav.module.css';
 export default function HorizontalNav() {
   return (
     <nav className={styles.nav}>
-      <Link to={'/'}>
+      <Link to="/">
         <img src={logo} className={styles.logo} alt="SportSee Logo" />
       </Link>
       <ul className={styles.navlist}>

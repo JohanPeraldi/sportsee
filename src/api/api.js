@@ -14,7 +14,7 @@ export async function getUserData(id) {
 }
 
 export async function getActivityInfo(id) {
-  const response = await axios(baseUrl + id + '/activity');
+  const response = await axios(`${baseUrl + id}/activity`);
   const data = new DataAdapter(response);
   const formattedData = data.getActivityData();
 
@@ -22,7 +22,7 @@ export async function getActivityInfo(id) {
 }
 
 export async function getAverageSessionLength(id) {
-  const response = await axios(baseUrl + id + '/average-sessions');
+  const response = await axios(`${baseUrl + id}/average-sessions`);
   const data = new DataAdapter(response);
   const formattedData = data.getSessionLengthData();
 
@@ -30,7 +30,7 @@ export async function getAverageSessionLength(id) {
 }
 
 export async function getPerformanceData(id) {
-  const response = await axios(baseUrl + id + '/performance');
+  const response = await axios(`${baseUrl + id}/performance`);
   const data = new DataAdapter(response);
   const formattedData = data.getPerformanceData();
 

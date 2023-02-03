@@ -1,3 +1,5 @@
+import React from 'react';
+import PropTypes from 'prop-types';
 import { RadialBarChart, RadialBar, Legend } from 'recharts';
 import styles from './Score.module.css';
 
@@ -8,7 +10,7 @@ const wrapperStyle = {
 };
 
 export default function Score(props) {
-  const data = props.data;
+  const { data } = props;
 
   return (
     <article className={styles.wrapper}>
@@ -43,3 +45,8 @@ export default function Score(props) {
     </article>
   );
 }
+
+Score.propTypes = {
+  data: PropTypes.node.isRequired,
+  percentage: PropTypes.number.isRequired,
+};

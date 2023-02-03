@@ -2,9 +2,11 @@ export default class DataAdapter {
   constructor(data) {
     this.data = data.data.data;
   }
+
   getFirstName() {
     return this.data.userInfos.firstName;
   }
+
   getActivityData() {
     const formattedData = this.data.sessions.map((session, index) => {
       return {
@@ -16,6 +18,7 @@ export default class DataAdapter {
 
     return formattedData;
   }
+
   getSessionLengthData() {
     const data = this.data.sessions;
     const formattedData = data.map((day, index) => {
@@ -28,8 +31,9 @@ export default class DataAdapter {
 
     return formattedData;
   }
+
   getPerformanceData() {
-    const data = this.data.data;
+    const { data } = this.data;
     const factors = [
       'Cardio',
       'Energie',
@@ -48,6 +52,7 @@ export default class DataAdapter {
 
     return reverseFormattedData;
   }
+
   getScoreData() {
     const score = this.data.todayScore || this.data.score;
     const scorePercentage = score * 100;
@@ -57,6 +62,7 @@ export default class DataAdapter {
       fill: '#ff0000',
     };
   }
+
   getKeyData() {
     return this.data.keyData;
   }

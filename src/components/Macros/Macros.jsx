@@ -1,3 +1,5 @@
+import React from 'react';
+import PropTypes from 'prop-types';
 import caloriesIcon from '../../assets/svg/calories-icon.svg';
 import carbsIcon from '../../assets/svg/carbs-icon.svg';
 import fatIcon from '../../assets/svg/fat-icon.svg';
@@ -6,6 +8,7 @@ import styles from './Macros.module.css';
 
 export default function Macros(props) {
   const { calorieCount, proteinCount, carbohydrateCount, lipidCount } =
+    // eslint-disable-next-line react/destructuring-assignment
     props.data;
 
   return (
@@ -49,3 +52,11 @@ export default function Macros(props) {
     </article>
   );
 }
+
+Macros.propTypes = {
+  data: PropTypes.node.isRequired,
+  calorieCount: PropTypes.node.isRequired,
+  proteinCount: PropTypes.node.isRequired,
+  carbohydrateCount: PropTypes.node.isRequired,
+  lipidCount: PropTypes.node.isRequired,
+};

@@ -1,3 +1,4 @@
+import React from 'react';
 import { Outlet } from 'react-router-dom';
 import HorizontalNav from '../../components/HorizontalNav/HorizontalNav';
 import VerticalNav from '../../components/VerticalNav/VerticalNav';
