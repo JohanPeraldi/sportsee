@@ -16,7 +16,7 @@ export default function ErrorPage() {
           <div className={styles.wrapper}>
             <h1 className={styles.title}>Oulala!</h1>
             <p className={styles.message}>
-              `Désolé, cette page n&apos;existe pas.`
+              Désolé, cette page n&apos;existe pas.
             </p>
             <p>
               <Link to="/">Retour à la page principale</Link>

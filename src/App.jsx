@@ -1,5 +1,5 @@
 import { React, useState, useEffect, useCallback } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import {
   getUserData,
   getActivityInfo,
@@ -21,19 +21,34 @@ function App() {
   const [performanceData, setPerformanceData] = useState();
   const [scoreData, setScoreData] = useState();
   const [keyData, setKeyData] = useState();
+  const [error, setError] = useState({});
   const { id } = useParams();
 
   const fetchData = useCallback(async () => {
     const res = await getUserData(id);
-    setFirstName(res.firstName);
-    setScoreData(res.scoreData);
-    setKeyData(res.keyData);
+    if (res) {
+      setFirstName(res.firstName);
+      setScoreData(res.scoreData);
+      setKeyData(res.keyData);
+    }
+    if (res.errorCode === 404) {
+      setError({ errorCode: 404 });
+    }
+    if (res.errorCode === 503) {
+      setError({ errorCode: 503 });
+    }
     const activityRes = await getActivityInfo(id);
-    setActivityData(activityRes);
+    if (activityRes) {
+      setActivityData(activityRes);
+    }
     const sessionLengthRes = await getAverageSessionLength(id);
-    setSessionsLength(sessionLengthRes);
+    if (sessionLengthRes) {
+      setSessionsLength(sessionLengthRes);
+    }
     const performanceRes = await getPerformanceData(id);
-    setPerformanceData(performanceRes);
+    if (performanceRes) {
+      setPerformanceData(performanceRes);
+    }
   }, [id]);
 
   useEffect(() => {
@@ -59,6 +74,20 @@ function App() {
       </div>
     );
   }
+
+  return (
+    <div className={styles.error}>
+      {error.errorCode === 404 && (
+        <p>Aucun utilisateur ne correspond à cet id.</p>
+      )}
+      {error.errorCode === 503 && (
+        <p>Le serveur ne répond pas. Veuillez réessayer ultérieurement.</p>
+      )}
+      <p>
+        <Link to="/">Retour à la page principale</Link>
+      </p>
+    </div>
+  );
 }
 
 export default App;
