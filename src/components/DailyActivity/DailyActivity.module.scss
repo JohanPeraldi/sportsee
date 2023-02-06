@@ -1,9 +1,11 @@
+@import '../../scss/abstracts/_variables.scss';
+
 .wrapper {
   position: relative;
   grid-column: span 3;
-  background-color: #fbfbfb;
-  color: #20253a;
-  border-radius: 5px;
+  background-color: $color-bgd-xx-light;
+  color: $color-text-dark;
+  border-radius: $border-radius;
   font-size: 14px;
 }
 
@@ -16,7 +18,7 @@
 }
 
 .custom-tooltip {
-  background-color: #e60000;
+  background-color: $color-primary;
   color: white;
   font-size: 12px;
   font-weight: 500;
@@ -33,7 +35,7 @@ li:first-of-type {
 }
 
 li span {
-  color: #74798c !important;
+  color: $color-text-light !important;
 }
 
 li > svg {

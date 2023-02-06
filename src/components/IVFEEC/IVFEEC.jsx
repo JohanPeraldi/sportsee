@@ -7,7 +7,7 @@ import {
   PolarAngleAxis,
   PolarRadiusAxis,
 } from 'recharts';
-import styles from './IVFEEC.module.css';
+import styles from './IVFEEC.module.scss';
 
 export default function IVFEEC(props) {
   const { data } = props;

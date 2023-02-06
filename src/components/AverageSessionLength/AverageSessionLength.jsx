@@ -9,7 +9,7 @@ import {
   XAxis,
   YAxis,
 } from 'recharts';
-import styles from './AverageSessionLength.module.css';
+import styles from './AverageSessionLength.module.scss';
 
 function CustomTooltip({ active, payload }) {
   if (active && payload && payload.length) {

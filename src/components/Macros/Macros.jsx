@@ -4,7 +4,7 @@ import caloriesIcon from '../../assets/svg/calories-icon.svg';
 import carbsIcon from '../../assets/svg/carbs-icon.svg';
 import fatIcon from '../../assets/svg/fat-icon.svg';
 import proteinIcon from '../../assets/svg/protein-icon.svg';
-import styles from './Macros.module.css';
+import styles from './Macros.module.scss';
 
 export default function Macros(props) {
   const { calorieCount, proteinCount, carbohydrateCount, lipidCount } =

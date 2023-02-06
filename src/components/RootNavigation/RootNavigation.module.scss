@@ -1,10 +1,12 @@
+@import '../../scss/abstracts/_variables.scss';
+
 .wrapper {
   grid-column: span 4;
-  background-color: #fbfbfb;
+  background-color: $color-bgd-xx-light;
 }
 
 .title {
-  color: red;
+  color: $color-primary;
 }
 
 .nav {

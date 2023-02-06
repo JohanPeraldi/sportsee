@@ -4,7 +4,7 @@ import HorizontalNav from '../HorizontalNav/HorizontalNav';
 import InnerWrapper from '../../layout/InnerWrapper/InnerWrapper';
 import OuterWrapper from '../../layout/OuterWrapper/OuterWrapper';
 import VerticalNav from '../VerticalNav/VerticalNav';
-import styles from './ErrorPage.module.css';
+import styles from './ErrorPage.module.scss';
 
 export default function ErrorPage() {
   return (

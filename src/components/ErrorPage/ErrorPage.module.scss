@@ -1,3 +1,5 @@
+@import '../../scss/abstracts/_variables.scss';
+
 .wrapper {
   display: flex;
   flex-direction: column;
@@ -10,11 +12,11 @@
 .title {
   font-size: 48px;
   font-weight: 700;
-  color: red;
+  color: $color-primary;
 }
 
 .message {
   font-size: 24px;
   font-weight: 500;
-  color: black;
+  color: $color-text-primary;
 }

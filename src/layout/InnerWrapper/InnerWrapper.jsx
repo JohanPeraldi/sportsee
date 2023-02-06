@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from './InnerWrapper.module.css';
+import styles from './InnerWrapper.module.scss';
 
 export default function InnerWrapper(props) {
   const { children } = props;

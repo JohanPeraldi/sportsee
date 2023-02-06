@@ -1,6 +1,8 @@
+@import '../../scss/abstracts/_variables.scss';
+
 .header {
   grid-column: span 4;
-  color: black;
+  color: $color-text-primary;
 }
 
 .title {
@@ -11,7 +13,7 @@
 }
 
 .name {
-  color: var(--color-primary);
+  color: $color-primary;
 }
 
 p {

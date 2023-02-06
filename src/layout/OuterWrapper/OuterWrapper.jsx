@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from './OuterWrapper.module.css';
+import styles from './OuterWrapper.module.scss';
 
 export default function OuterWrapper(props) {
   const { children } = props;

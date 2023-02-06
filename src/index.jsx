@@ -5,7 +5,7 @@ import App from './App';
 import ErrorPage from './components/ErrorPage/ErrorPage';
 import RootNavigation from './components/RootNavigation/RootNavigation';
 import Root from './routes/Root/Root';
-import './index.css';
+import './index.scss';
 
 const router = createBrowserRouter([
   {

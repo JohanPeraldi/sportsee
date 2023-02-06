@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import styles from './RootNavigation.module.css';
+import styles from './RootNavigation.module.scss';
 
 export default function RootNavigation() {
   return (

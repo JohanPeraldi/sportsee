@@ -1,0 +1,8 @@
+@import '../../scss/abstracts/_variables.scss';
+
+.radar {
+  grid-row: 3/4;
+  grid-column: 2/3;
+  background: $color-text-md-dark;
+  border-radius: $border-radius;
+}

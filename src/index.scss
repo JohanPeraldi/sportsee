@@ -1,4 +1,4 @@
-@import-normalize; /* bring in normalize.css styles */
+@import './scss/abstracts/_variables.scss';
 
 :root {
   box-sizing: border-box;
@@ -12,7 +12,7 @@
 
 body {
   margin: 0;
-  font-family: 'Roboto', Helvetica, Arial, sans-serif;
+  font-family: $font-family;
 }
 
 ul {

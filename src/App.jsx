@@ -12,7 +12,7 @@ import Header from './components/Header/Header';
 import IVFEEC from './components/IVFEEC/IVFEEC';
 import Macros from './components/Macros/Macros';
 import Score from './components/Score/Score';
-import styles from './App.module.css';
+import styles from './App.module.scss';
 
 function App() {
   const [firstName, setFirstName] = useState();

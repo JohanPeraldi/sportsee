@@ -3,7 +3,7 @@ import cyclingIcon from '../../assets/svg/cycling-icon.svg';
 import meditatingIcon from '../../assets/svg/meditating-icon.svg';
 import swimmingIcon from '../../assets/svg/swimming-icon.svg';
 import weightIcon from '../../assets/svg/weight-icon.svg';
-import styles from './VerticalNav.module.css';
+import styles from './VerticalNav.module.scss';
 
 export default function VerticalNav() {
   const year = new Date().getFullYear();

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from './Header.module.css';
+import styles from './Header.module.scss';
 
 export default function Header(props) {
   const { firstName } = props;

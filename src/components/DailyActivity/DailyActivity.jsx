@@ -9,7 +9,7 @@ import {
   XAxis,
   YAxis,
 } from 'recharts';
-import styles from './DailyActivity.module.css';
+import styles from './DailyActivity.module.scss';
 
 function CustomTooltip({ active, payload }) {
   if (active && payload && payload.length) {
@@ -112,5 +112,5 @@ CustomTooltip.propTypes = {
 };
 
 DailyActivity.propTypes = {
-  data: PropTypes.node.isRequired,
+  data: PropTypes.objectOf(PropTypes.number || PropTypes.string).isRequired,
 };
