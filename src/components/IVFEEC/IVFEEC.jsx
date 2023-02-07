@@ -44,5 +44,7 @@ export default function IVFEEC(props) {
 }
 
 IVFEEC.propTypes = {
-  data: PropTypes.node.isRequired,
+  data: PropTypes.arrayOf(
+    PropTypes.shape({ factor: PropTypes.string, value: PropTypes.number })
+  ).isRequired,
 };

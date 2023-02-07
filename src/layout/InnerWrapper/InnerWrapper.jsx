@@ -9,9 +9,5 @@ export default function InnerWrapper(props) {
 }
 
 InnerWrapper.propTypes = {
-  children: PropTypes.oneOfType([
-    PropTypes.array,
-    PropTypes.node,
-    PropTypes.string,
-  ]).isRequired,
+  children: PropTypes.node.isRequired,
 };

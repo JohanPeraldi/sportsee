@@ -12,7 +12,7 @@ import {
 import styles from './DailyActivity.module.scss';
 
 function CustomTooltip({ active, payload }) {
-  if (active && payload && payload.length) {
+  if (active && payload) {
     return (
       <div className={styles['custom-tooltip']}>
         <p className={styles['tooltip-info']}>{`${payload[0].value} kg`}</p>
@@ -105,12 +105,29 @@ export default function DailyActivity(props) {
 }
 
 CustomTooltip.propTypes = {
-  active: PropTypes.node.isRequired,
-  payload: PropTypes.node.isRequired,
-  length: PropTypes.number.isRequired,
-  value: PropTypes.node.isRequired,
+  active: PropTypes.bool,
+  payload: PropTypes.arrayOf(
+    PropTypes.shape({
+      color: PropTypes.string,
+      dataKey: PropTypes.string,
+      fill: PropTypes.string,
+      name: PropTypes.string,
+      value: PropTypes.number,
+    })
+  ),
+};
+
+CustomTooltip.defaultProps = {
+  active: undefined,
+  payload: undefined,
 };
 
 DailyActivity.propTypes = {
-  data: PropTypes.objectOf(PropTypes.number || PropTypes.string).isRequired,
+  data: PropTypes.arrayOf(
+    PropTypes.shape({
+      calories: PropTypes.number,
+      day: PropTypes.string,
+      kilogram: PropTypes.number,
+    })
+  ).isRequired,
 };

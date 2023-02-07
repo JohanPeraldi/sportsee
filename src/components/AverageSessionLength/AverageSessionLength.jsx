@@ -12,7 +12,7 @@ import {
 import styles from './AverageSessionLength.module.scss';
 
 function CustomTooltip({ active, payload }) {
-  if (active && payload && payload.length) {
+  if (active && payload) {
     return (
       <div className={styles['custom-tooltip']}>
         <p className={styles['tooltip-text']}>{`${payload[0].value} min`}</p>
@@ -76,12 +76,23 @@ export default function AverageSessionLength(props) {
 }
 
 AverageSessionLength.propTypes = {
-  data: PropTypes.node.isRequired,
+  data: PropTypes.arrayOf(
+    PropTypes.shape({
+      day: PropTypes.string,
+      sessionLength: PropTypes.number,
+    })
+  ).isRequired,
 };
 
 CustomTooltip.propTypes = {
-  active: PropTypes.node.isRequired,
-  payload: PropTypes.node.isRequired,
-  length: PropTypes.number.isRequired,
-  value: PropTypes.node.isRequired,
+  active: PropTypes.bool.isRequired,
+  payload: PropTypes.arrayOf(
+    PropTypes.shape({
+      color: PropTypes.string,
+      dataKey: PropTypes.string,
+      fill: PropTypes.string,
+      name: PropTypes.string,
+      value: PropTypes.number,
+    })
+  ).isRequired,
 };

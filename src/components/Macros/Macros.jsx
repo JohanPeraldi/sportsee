@@ -54,9 +54,10 @@ export default function Macros(props) {
 }
 
 Macros.propTypes = {
-  data: PropTypes.node.isRequired,
-  calorieCount: PropTypes.node.isRequired,
-  proteinCount: PropTypes.node.isRequired,
-  carbohydrateCount: PropTypes.node.isRequired,
-  lipidCount: PropTypes.node.isRequired,
+  data: PropTypes.shape({
+    calorieCount: PropTypes.number.isRequired,
+    proteinCount: PropTypes.number.isRequired,
+    carbohydrateCount: PropTypes.number.isRequired,
+    lipidCount: PropTypes.number.isRequired,
+  }).isRequired,
 };

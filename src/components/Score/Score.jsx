@@ -47,6 +47,9 @@ export default function Score(props) {
 }
 
 Score.propTypes = {
-  data: PropTypes.node.isRequired,
-  percentage: PropTypes.number.isRequired,
+  data: PropTypes.shape({
+    fill: PropTypes.string,
+    name: PropTypes.string,
+    percentage: PropTypes.number,
+  }).isRequired,
 };
