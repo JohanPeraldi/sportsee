@@ -2,6 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './Header.module.scss';
 
+/**
+ * Creates a React component.
+ * @param { Object } props
+ * @returns { HTMLElement }
+ */
 export default function Header(props) {
   const { firstName } = props;
 

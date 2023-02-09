@@ -3,6 +3,10 @@ import { Link } from 'react-router-dom';
 import logo from '../../assets/svg/logo.svg';
 import styles from './HorizontalNav.module.scss';
 
+/**
+ * Creates a React component.
+ * @returns { HTMLElement }
+ */
 export default function HorizontalNav() {
   return (
     <nav className={styles.nav}>

@@ -6,6 +6,10 @@ import OuterWrapper from '../../layout/OuterWrapper/OuterWrapper';
 import VerticalNav from '../VerticalNav/VerticalNav';
 import styles from './ErrorPage.module.scss';
 
+/**
+ * Creates a React component.
+ * @returns { HTMLElement }
+ */
 export default function ErrorPage() {
   return (
     <main className={styles.main}>

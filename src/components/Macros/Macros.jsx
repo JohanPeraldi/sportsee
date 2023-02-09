@@ -6,6 +6,11 @@ import fatIcon from '../../assets/svg/fat-icon.svg';
 import proteinIcon from '../../assets/svg/protein-icon.svg';
 import styles from './Macros.module.scss';
 
+/**
+ * Creates a React component.
+ * @param { Object } props
+ * @returns { HTMLElement }
+ */
 export default function Macros(props) {
   const { calorieCount, proteinCount, carbohydrateCount, lipidCount } =
     // eslint-disable-next-line react/destructuring-assignment

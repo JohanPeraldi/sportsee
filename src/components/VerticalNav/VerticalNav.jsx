@@ -5,6 +5,10 @@ import swimmingIcon from '../../assets/svg/swimming-icon.svg';
 import weightIcon from '../../assets/svg/weight-icon.svg';
 import styles from './VerticalNav.module.scss';
 
+/**
+ * Creates a React component.
+ * @returns { HTMLElement }
+ */
 export default function VerticalNav() {
   const year = new Date().getFullYear();
 

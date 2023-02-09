@@ -1,22 +1,22 @@
 // import { React, useState } from 'react';
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import DataButton from '../DataButton/DataButton';
+import { DataContext } from '../../utils/context';
 import styles from './RootNavigation.module.scss';
 
+/**
+ * Creates a React component.
+ * @returns { HTMLElement }
+ */
 export default function RootNavigation() {
   // const [mockedData, setMockedData] = useState(true);
-  const mockedData = true;
+  const mockedData = useContext(DataContext);
   // const mockedData = false;
 
   return (
     <div className={styles.wrapper}>
       <h1 className={styles.title}>Sélectionnez un profil utilisateur</h1>
-      {/* <button type="button" onClick={setMockedData(false)}>
-        Profils réels
-      </button>
-      <button type="button" onClick={setMockedData(true)}>
-        Profils factices
-      </button> */}
       {!mockedData && (
         <>
           <h2>Utilisateurs réels</h2>
@@ -47,6 +47,7 @@ export default function RootNavigation() {
           </nav>
         </>
       )}
+      <DataButton />
     </div>
   );
 }

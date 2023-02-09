@@ -13,6 +13,11 @@ const isMockedData = true;
 // const isMockedData = false;
 const baseUrl = 'http://localhost:3000/user/';
 
+/**
+ * Sends an Axios request for the data of the user whose id is passed as an argument to the function.
+ * @param { String } id
+ * @returns { Object.<firstName: String, scoreData: Integer, keyData: Object.<calorieCount: Integer, proteinCount: Integer, carbohydrateCount: Integer, lipidCount: Integer>> }
+ */
 export async function getUserData(id) {
   const currentUser = USER_MAIN_DATA.find((user) => user.id === Number(id));
 
@@ -54,6 +59,11 @@ export async function getUserData(id) {
   return { firstName, scoreData, keyData };
 }
 
+/**
+ * Sends an Axios request for the activity data of the user whose id is passed as an argument to the function.
+ * @param { String } id
+ * @returns { Object.<calories: Integer, day: String, kilogram: Integer> }
+ */
 export async function getActivityInfo(id) {
   if (!isMockedData) {
     try {
@@ -94,6 +104,11 @@ export async function getActivityInfo(id) {
   return formattedData;
 }
 
+/**
+ * Sends an Axios request for the average session length data of the user whose id is passed as an argument to the function.
+ * @param { String } id
+ * @returns { Object.<day: String, sessionLength: Integer> }
+ */
 export async function getAverageSessionLength(id) {
   if (!isMockedData) {
     try {
@@ -134,6 +149,11 @@ export async function getAverageSessionLength(id) {
   return formattedData;
 }
 
+/**
+ * Sends an Axios request for the performance data of the user whose id is passed as an argument to the function.
+ * @param { String } id
+ * @returns { Object.<factor: String, value: Integer> }
+ */
 export async function getPerformanceData(id) {
   if (!isMockedData) {
     try {

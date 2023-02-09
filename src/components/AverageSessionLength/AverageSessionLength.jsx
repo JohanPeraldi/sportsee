@@ -11,6 +11,12 @@ import {
 } from 'recharts';
 import styles from './AverageSessionLength.module.scss';
 
+/**
+ * Creates a Recharts custom tooltip.
+ * @param { Bool } active
+ * @param { Array } payload
+ * @returns { HTMLElement }
+ */
 function CustomTooltip({ active, payload }) {
   if (active && payload) {
     return (
@@ -23,6 +29,11 @@ function CustomTooltip({ active, payload }) {
   return null;
 }
 
+/**
+ * Creates a React component integrating a LineChart Recharts component.
+ * @param { Object } props
+ * @returns { HTMLElement }
+ */
 export default function AverageSessionLength(props) {
   const { data } = props;
   const tooltipWrapperStyle = {

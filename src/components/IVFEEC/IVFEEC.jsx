@@ -9,6 +9,11 @@ import {
 } from 'recharts';
 import styles from './IVFEEC.module.scss';
 
+/**
+ * Creates a React component integrating a RadarChart Recharts component.
+ * @param { Object } props
+ * @returns { HTMLElement }
+ */
 export default function IVFEEC(props) {
   const { data } = props;
 

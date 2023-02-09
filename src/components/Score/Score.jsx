@@ -9,6 +9,11 @@ const wrapperStyle = {
   left: 10,
 };
 
+/**
+ * Creates a React component integrating a RadialBarChart Recharts component.
+ * @param { Object } props
+ * @returns { HTMLElement }
+ */
 export default function Score(props) {
   const { data } = props;
 

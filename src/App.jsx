@@ -14,6 +14,10 @@ import Macros from './components/Macros/Macros';
 import Score from './components/Score/Score';
 import styles from './App.module.scss';
 
+/**
+ * Creates a React component.
+ * @returns { HTMLElement }
+ */
 function App() {
   const [firstName, setFirstName] = useState();
   const [activityData, setActivityData] = useState();
