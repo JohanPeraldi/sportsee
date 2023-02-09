@@ -1,4 +1,5 @@
-const USER_MAIN_DATA = [
+/* eslint-disable import/prefer-default-export */
+export const USER_MAIN_DATA = [
   {
     id: 500,
     userInfos: {
@@ -6,7 +7,7 @@ const USER_MAIN_DATA = [
       lastName: 'Malières',
       age: 24,
     },
-    todayScore: 0.89,
+    score: 0.89,
     keyData: {
       calorieCount: 3754,
       proteinCount: 334,
@@ -31,7 +32,7 @@ const USER_MAIN_DATA = [
   },
 ];
 
-const USER_ACTIVITY = [
+export const USER_ACTIVITY = [
   {
     userId: 500,
     sessions: [
@@ -114,7 +115,7 @@ const USER_ACTIVITY = [
   },
 ];
 
-const USER_AVERAGE_SESSIONS = [
+export const USER_AVERAGE_SESSIONS = [
   {
     userId: 500,
     sessions: [
@@ -183,7 +184,7 @@ const USER_AVERAGE_SESSIONS = [
   },
 ];
 
-const USER_PERFORMANCE = [
+export const USER_PERFORMANCE = [
   {
     userId: 500,
     kind: {
@@ -260,9 +261,9 @@ const USER_PERFORMANCE = [
   },
 ];
 
-export default {
+/* export default {
   USER_MAIN_DATA,
   USER_ACTIVITY,
   USER_AVERAGE_SESSIONS,
   USER_PERFORMANCE,
-};
+}; */
