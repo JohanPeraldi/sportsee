@@ -9,9 +9,8 @@ import {
   USER_PERFORMANCE,
 } from '../data/mockedData';
 
-const isMockedData = true;
-// const isMockedData = false;
 const baseUrl = 'http://localhost:3000/user/';
+const isMockedData = process.env.REACT_APP_MOCKEDDATA;
 
 /**
  * Sends an Axios request for the data of the user whose id is passed as an argument to the function.
@@ -20,8 +19,9 @@ const baseUrl = 'http://localhost:3000/user/';
  */
 export async function getUserData(id) {
   const currentUser = USER_MAIN_DATA.find((user) => user.id === Number(id));
-
-  if (!isMockedData) {
+  console.log(USER_MAIN_DATA);
+  console.log(currentUser);
+  if (isMockedData === 'false') {
     try {
       const response = await axios.get(baseUrl + id);
       const formattedData = new DataAdapter(response);
@@ -45,7 +45,6 @@ export async function getUserData(id) {
       return null;
     }
   }
-
   const { firstName } = currentUser.userInfos;
   const { score } = currentUser;
   const scorePercentage = score * 100;
@@ -65,7 +64,7 @@ export async function getUserData(id) {
  * @returns { Object.<calories: Integer, day: String, kilogram: Integer> }
  */
 export async function getActivityInfo(id) {
-  if (!isMockedData) {
+  if (isMockedData === 'false') {
     try {
       const response = await axios(`${baseUrl + id}/activity`);
       const data = new DataAdapter(response);
@@ -110,7 +109,7 @@ export async function getActivityInfo(id) {
  * @returns { Object.<day: String, sessionLength: Integer> }
  */
 export async function getAverageSessionLength(id) {
-  if (!isMockedData) {
+  if (isMockedData === 'false') {
     try {
       const response = await axios(`${baseUrl + id}/average-sessions`);
       const data = new DataAdapter(response);
@@ -155,7 +154,7 @@ export async function getAverageSessionLength(id) {
  * @returns { Object.<factor: String, value: Integer> }
  */
 export async function getPerformanceData(id) {
-  if (!isMockedData) {
+  if (isMockedData === 'false') {
     try {
       const response = await axios(`${baseUrl + id}/performance`);
       const data = new DataAdapter(response);

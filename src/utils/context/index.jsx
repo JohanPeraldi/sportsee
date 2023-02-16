@@ -12,7 +12,6 @@ export function DataProvider({ children }) {
   const [isMockedData, setIsMockedData] = useState(false);
   const toggleData = () => {
     setIsMockedData(!isMockedData);
-    console.log('isMockedData: ', isMockedData);
   };
 
   return (

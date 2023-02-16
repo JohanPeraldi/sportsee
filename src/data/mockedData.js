@@ -1,7 +1,7 @@
 /* eslint-disable import/prefer-default-export */
 export const USER_MAIN_DATA = [
   {
-    id: 500,
+    id: 12,
     userInfos: {
       firstName: 'Annie',
       lastName: 'Malières',
@@ -16,7 +16,7 @@ export const USER_MAIN_DATA = [
     },
   },
   {
-    id: 501,
+    id: 18,
     userInfos: {
       firstName: 'Oscar',
       lastName: 'Tonpate',
@@ -34,7 +34,7 @@ export const USER_MAIN_DATA = [
 
 export const USER_ACTIVITY = [
   {
-    userId: 500,
+    userId: 12,
     sessions: [
       {
         day: '2023-02-01',
@@ -74,7 +74,7 @@ export const USER_ACTIVITY = [
     ],
   },
   {
-    userId: 501,
+    userId: 18,
     sessions: [
       {
         day: '2023-02-01',
@@ -94,7 +94,7 @@ export const USER_ACTIVITY = [
       {
         day: '2023-02-04',
         kilogram: 70,
-        calories: 500,
+        calories: 12,
       },
       {
         day: '2023-02-05',
@@ -117,7 +117,7 @@ export const USER_ACTIVITY = [
 
 export const USER_AVERAGE_SESSIONS = [
   {
-    userId: 500,
+    userId: 12,
     sessions: [
       {
         day: 1,
@@ -150,7 +150,7 @@ export const USER_AVERAGE_SESSIONS = [
     ],
   },
   {
-    userId: 501,
+    userId: 18,
     sessions: [
       {
         day: 1,
@@ -186,7 +186,7 @@ export const USER_AVERAGE_SESSIONS = [
 
 export const USER_PERFORMANCE = [
   {
-    userId: 500,
+    userId: 12,
     kind: {
       1: 'cardio',
       2: 'energy',
@@ -223,7 +223,7 @@ export const USER_PERFORMANCE = [
     ],
   },
   {
-    userId: 501,
+    userId: 18,
     kind: {
       1: 'cardio',
       2: 'energy',

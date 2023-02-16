@@ -16,7 +16,6 @@ export default function DataButton() {
         type="button"
         onClick={() => {
           toggleData();
-          console.log('Opposite data state: ', oppositeDataState);
         }}
       >
         Utiliser les données {oppositeDataState}
