@@ -11,7 +11,8 @@ export const DataContext = createContext();
 export function DataProvider({ children }) {
   const [isMockedData, setIsMockedData] = useState(false);
   const toggleData = () => {
-    setIsMockedData(isMockedData === false);
+    setIsMockedData(!isMockedData);
+    console.log('isMockedData: ', isMockedData);
   };
 
   return (

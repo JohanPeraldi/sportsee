@@ -7,16 +7,17 @@ import styles from './DataButton.module.scss';
  * @returns { HTMLElement }
  */
 export default function DataButton() {
-  const { toggleData, data } = useContext(DataContext);
-  // const isMockedData = false;
-  // const isMockedData = true;
-  const oppositeDataState = data === 'réelles' ? 'factices' : 'réelles';
+  const { isMockedData, toggleData } = useContext(DataContext);
+  const oppositeDataState = isMockedData === true ? 'réelles' : 'factices';
   return (
     <div className={styles.container}>
       <button
         className={styles.button}
         type="button"
-        onClick={() => toggleData()}
+        onClick={() => {
+          toggleData();
+          console.log('Opposite data state: ', oppositeDataState);
+        }}
       >
         Utiliser les données {oppositeDataState}
       </button>
