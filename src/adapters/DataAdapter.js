@@ -5,7 +5,7 @@
  */
 export default class DataAdapter {
   constructor(data) {
-    this.data = data.data.data;
+    this.data = data;
   }
 
   /**

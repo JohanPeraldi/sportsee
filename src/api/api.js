@@ -18,15 +18,10 @@ const isMockedData = Boolean(process.env.REACT_APP_MOCKEDDATA);
  * @returns { Object.<firstName: String, scoreData: Integer, keyData: Object.<calorieCount: Integer, proteinCount: Integer, carbohydrateCount: Integer, lipidCount: Integer>> }
  */
 export async function getUserData(id) {
+  let response;
   if (!isMockedData) {
     try {
-      const response = await axios.get(baseUrl + id);
-      const formattedData = new DataAdapter(response);
-      const firstName = formattedData.getFirstName();
-      const scoreData = formattedData.getScoreData();
-      const keyData = formattedData.getKeyData();
-
-      return { firstName, scoreData, keyData };
+      response = await (await axios.get(baseUrl + id)).data.data;
     } catch (error) {
       if (error.request.status === 404) {
         return {
@@ -41,17 +36,14 @@ export async function getUserData(id) {
 
       return null;
     }
+  } else {
+    // This code runs only if fetching mocked data
+    response = USER_MAIN_DATA.find((user) => user.id === Number(id));
   }
-  // Code below runs only if fetching mocked data
-  const currentUser = USER_MAIN_DATA.find((user) => user.id === Number(id));
-  const { firstName } = currentUser.userInfos;
-  const { score, keyData } = currentUser;
-  const scorePercentage = score * 100;
-  const scoreData = {
-    name: 'Score',
-    percentage: scorePercentage,
-    fill: '#ff0000',
-  };
+  const formattedData = new DataAdapter(response);
+  const firstName = formattedData.getFirstName();
+  const scoreData = formattedData.getScoreData();
+  const keyData = formattedData.getKeyData();
 
   return { firstName, scoreData, keyData };
 }
@@ -62,13 +54,10 @@ export async function getUserData(id) {
  * @returns { Object.<calories: Integer, day: String, kilogram: Integer> }
  */
 export async function getActivityInfo(id) {
+  let response;
   if (!isMockedData) {
     try {
-      const response = await axios(`${baseUrl + id}/activity`);
-      const data = new DataAdapter(response);
-      const formattedData = data.getActivityData();
-
-      return formattedData;
+      response = await (await axios(`${baseUrl + id}/activity`)).data.data;
     } catch (error) {
       if (error.request.status === 404) {
         return {
@@ -83,20 +72,12 @@ export async function getActivityInfo(id) {
 
       return null;
     }
+  } else {
+    // This code runs only if fetching mocked data
+    response = USER_ACTIVITY.find((user) => user.userId === Number(id));
   }
-  // Code below runs only if fetching mocked data
-  const currentUserActivityData = USER_ACTIVITY.find(
-    (user) => user.userId === Number(id)
-  );
-  const formattedData = currentUserActivityData.sessions.map(
-    (session, index) => {
-      return {
-        calories: session.calories,
-        day: (index + 1).toString(),
-        kilogram: session.kilogram,
-      };
-    }
-  );
+  const data = new DataAdapter(response);
+  const formattedData = data.getActivityData();
 
   return formattedData;
 }
@@ -107,13 +88,12 @@ export async function getActivityInfo(id) {
  * @returns { Object.<day: String, sessionLength: Integer> }
  */
 export async function getAverageSessionLength(id) {
+  let response;
   if (!isMockedData) {
     try {
-      const response = await axios(`${baseUrl + id}/average-sessions`);
-      const data = new DataAdapter(response);
-      const formattedData = data.getSessionLengthData();
-
-      return formattedData;
+      response = await (
+        await axios(`${baseUrl + id}/average-sessions`)
+      ).data.data;
     } catch (error) {
       if (error.request.status === 404) {
         return {
@@ -128,20 +108,12 @@ export async function getAverageSessionLength(id) {
 
       return null;
     }
+  } else {
+    // This code runs only if fetching mocked data
+    response = USER_AVERAGE_SESSIONS.find((user) => user.userId === Number(id));
   }
-  // Code below runs only if fetching mocked data
-  const currentUserAverageSessions = USER_AVERAGE_SESSIONS.find(
-    (user) => user.userId === Number(id)
-  );
-  const formattedData = currentUserAverageSessions.sessions.map(
-    (day, index) => {
-      const days = ['L', 'M', 'M', 'J', 'V', 'S', 'D'];
-      return {
-        day: days[index],
-        sessionLength: day.sessionLength,
-      };
-    }
-  );
+  const data = new DataAdapter(response);
+  const formattedData = data.getSessionLengthData();
 
   return formattedData;
 }
@@ -152,13 +124,10 @@ export async function getAverageSessionLength(id) {
  * @returns { Object.<factor: String, value: Integer> }
  */
 export async function getPerformanceData(id) {
+  let response;
   if (!isMockedData) {
     try {
-      const response = await axios(`${baseUrl + id}/performance`);
-      const data = new DataAdapter(response);
-      const formattedData = data.getPerformanceData();
-
-      return formattedData;
+      response = await (await axios(`${baseUrl + id}/performance`)).data.data;
     } catch (error) {
       if (error.request.status === 404) {
         return {
@@ -173,26 +142,12 @@ export async function getPerformanceData(id) {
 
       return null;
     }
+  } else {
+    // This code runs only if fetching mocked data
+    response = USER_PERFORMANCE.find((user) => user.userId === Number(id));
   }
-  // Code below runs only if fetching mocked data
-  const currentUserPerformanceData = USER_PERFORMANCE.find(
-    (user) => user.userId === Number(id)
-  );
-  const factors = [
-    'Cardio',
-    'Energie',
-    'Endurance',
-    'Force',
-    'Vitesse',
-    'Intensité',
-  ];
-  const formattedData = currentUserPerformanceData.data.map((el) => {
-    return {
-      factor: factors[el.kind - 1],
-      value: el.value,
-    };
-  });
-  const reverseFormattedData = formattedData.reverse();
+  const data = new DataAdapter(response);
+  const formattedData = data.getPerformanceData();
 
-  return reverseFormattedData;
+  return formattedData;
 }
