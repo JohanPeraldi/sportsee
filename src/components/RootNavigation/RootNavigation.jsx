@@ -7,12 +7,12 @@ import styles from './RootNavigation.module.scss';
  * @returns { HTMLElement }
  */
 export default function RootNavigation() {
-  const isMockedData = process.env.REACT_APP_MOCKEDDATA;
+  const isMockedData = Boolean(process.env.REACT_APP_MOCKEDDATA);
 
   return (
     <div className={styles.wrapper}>
       <h1 className={styles.title}>Sélectionnez un profil utilisateur</h1>
-      {isMockedData === 'false' && (
+      {!isMockedData && (
         <>
           <h2>Utilisateurs réels</h2>
           <nav className={styles.nav}>
@@ -27,7 +27,7 @@ export default function RootNavigation() {
           </nav>
         </>
       )}
-      {isMockedData === 'true' && (
+      {isMockedData && (
         <>
           <h2>Utilisateurs factices</h2>
           <nav className={styles.nav}>

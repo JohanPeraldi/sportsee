@@ -10,7 +10,7 @@ import {
 } from '../data/mockedData';
 
 const baseUrl = 'http://localhost:3000/user/';
-const isMockedData = process.env.REACT_APP_MOCKEDDATA;
+const isMockedData = Boolean(process.env.REACT_APP_MOCKEDDATA);
 
 /**
  * Sends an Axios request for the data of the user whose id is passed as an argument to the function.
@@ -19,7 +19,7 @@ const isMockedData = process.env.REACT_APP_MOCKEDDATA;
  */
 export async function getUserData(id) {
   const currentUser = USER_MAIN_DATA.find((user) => user.id === Number(id));
-  if (isMockedData === 'false') {
+  if (!isMockedData) {
     try {
       const response = await axios.get(baseUrl + id);
       const formattedData = new DataAdapter(response);
@@ -63,7 +63,7 @@ export async function getUserData(id) {
  * @returns { Object.<calories: Integer, day: String, kilogram: Integer> }
  */
 export async function getActivityInfo(id) {
-  if (isMockedData === 'false') {
+  if (!isMockedData) {
     try {
       const response = await axios(`${baseUrl + id}/activity`);
       const data = new DataAdapter(response);
@@ -108,7 +108,7 @@ export async function getActivityInfo(id) {
  * @returns { Object.<day: String, sessionLength: Integer> }
  */
 export async function getAverageSessionLength(id) {
-  if (isMockedData === 'false') {
+  if (!isMockedData) {
     try {
       const response = await axios(`${baseUrl + id}/average-sessions`);
       const data = new DataAdapter(response);
@@ -153,7 +153,7 @@ export async function getAverageSessionLength(id) {
  * @returns { Object.<factor: String, value: Integer> }
  */
 export async function getPerformanceData(id) {
-  if (isMockedData === 'false') {
+  if (!isMockedData) {
     try {
       const response = await axios(`${baseUrl + id}/performance`);
       const data = new DataAdapter(response);
