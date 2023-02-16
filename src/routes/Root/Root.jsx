@@ -4,7 +4,6 @@ import HorizontalNav from '../../components/HorizontalNav/HorizontalNav';
 import VerticalNav from '../../components/VerticalNav/VerticalNav';
 import InnerWrapper from '../../layout/InnerWrapper/InnerWrapper';
 import OuterWrapper from '../../layout/OuterWrapper/OuterWrapper';
-import { DataProvider } from '../../utils/context';
 
 /**
  * Creates a React component.
@@ -13,15 +12,13 @@ import { DataProvider } from '../../utils/context';
 export default function Root() {
   return (
     <main>
-      <DataProvider>
-        <HorizontalNav />
-        <OuterWrapper>
-          <VerticalNav />
-          <InnerWrapper>
-            <Outlet />
-          </InnerWrapper>
-        </OuterWrapper>
-      </DataProvider>
+      <HorizontalNav />
+      <OuterWrapper>
+        <VerticalNav />
+        <InnerWrapper>
+          <Outlet />
+        </InnerWrapper>
+      </OuterWrapper>
     </main>
   );
 }

@@ -77,39 +77,39 @@ export const USER_ACTIVITY = [
     userId: 18,
     sessions: [
       {
-        day: '2023-02-01',
+        day: '2023-02-09',
         kilogram: 70,
-        calories: 240,
+        calories: 180,
       },
       {
-        day: '2023-02-02',
-        kilogram: 69,
+        day: '2023-02-10',
+        kilogram: 70,
+        calories: 250,
+      },
+      {
+        day: '2023-02-11',
+        kilogram: 72,
+        calories: 230,
+      },
+      {
+        day: '2023-02-12',
+        kilogram: 73,
+        calories: 150,
+      },
+      {
+        day: '2023-02-13',
+        kilogram: 70,
+        calories: 190,
+      },
+      {
+        day: '2023-02-14',
+        kilogram: 70,
+        calories: 210,
+      },
+      {
+        day: '2023-02-15',
+        kilogram: 71,
         calories: 220,
-      },
-      {
-        day: '2023-02-03',
-        kilogram: 70,
-        calories: 280,
-      },
-      {
-        day: '2023-02-04',
-        kilogram: 70,
-        calories: 12,
-      },
-      {
-        day: '2023-02-05',
-        kilogram: 69,
-        calories: 160,
-      },
-      {
-        day: '2023-02-06',
-        kilogram: 69,
-        calories: 162,
-      },
-      {
-        day: '2023-02-07',
-        kilogram: 69,
-        calories: 390,
       },
     ],
   },
@@ -260,10 +260,3 @@ export const USER_PERFORMANCE = [
     ],
   },
 ];
-
-/* export default {
-  USER_MAIN_DATA,
-  USER_ACTIVITY,
-  USER_AVERAGE_SESSIONS,
-  USER_PERFORMANCE,
-}; */

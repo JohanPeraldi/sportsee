@@ -1,8 +1,5 @@
-// import { React, useState } from 'react';
-import React, { useContext } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import DataButton from '../DataButton/DataButton';
-import { DataContext } from '../../utils/context';
 import styles from './RootNavigation.module.scss';
 
 /**
@@ -10,12 +7,12 @@ import styles from './RootNavigation.module.scss';
  * @returns { HTMLElement }
  */
 export default function RootNavigation() {
-  const { isMockedData } = useContext(DataContext);
+  const isMockedData = process.env.REACT_APP_MOCKEDDATA;
 
   return (
     <div className={styles.wrapper}>
       <h1 className={styles.title}>Sélectionnez un profil utilisateur</h1>
-      {!isMockedData && (
+      {isMockedData === 'false' && (
         <>
           <h2>Utilisateurs réels</h2>
           <nav className={styles.nav}>
@@ -30,22 +27,21 @@ export default function RootNavigation() {
           </nav>
         </>
       )}
-      {isMockedData && (
+      {isMockedData === 'true' && (
         <>
           <h2>Utilisateurs factices</h2>
           <nav className={styles.nav}>
             <ul>
               <li>
-                <Link to="/accueil/user/500">Annie</Link>
+                <Link to="/accueil/user/12">Annie</Link>
               </li>
               <li>
-                <Link to="/accueil/user/501">Oscar</Link>
+                <Link to="/accueil/user/18">Oscar</Link>
               </li>
             </ul>
           </nav>
         </>
       )}
-      <DataButton />
     </div>
   );
 }

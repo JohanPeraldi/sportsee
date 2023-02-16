@@ -19,8 +19,6 @@ const isMockedData = process.env.REACT_APP_MOCKEDDATA;
  */
 export async function getUserData(id) {
   const currentUser = USER_MAIN_DATA.find((user) => user.id === Number(id));
-  console.log(USER_MAIN_DATA);
-  console.log(currentUser);
   if (isMockedData === 'false') {
     try {
       const response = await axios.get(baseUrl + id);
@@ -44,18 +42,19 @@ export async function getUserData(id) {
 
       return null;
     }
-  }
-  const { firstName } = currentUser.userInfos;
-  const { score } = currentUser;
-  const scorePercentage = score * 100;
-  const scoreData = {
-    name: 'Score',
-    percentage: scorePercentage,
-    fill: '#ff0000',
-  };
-  const { keyData } = currentUser;
+  } else {
+    const { firstName } = currentUser.userInfos;
+    const { score } = currentUser;
+    const scorePercentage = score * 100;
+    const scoreData = {
+      name: 'Score',
+      percentage: scorePercentage,
+      fill: '#ff0000',
+    };
+    const { keyData } = currentUser;
 
-  return { firstName, scoreData, keyData };
+    return { firstName, scoreData, keyData };
+  }
 }
 
 /**
