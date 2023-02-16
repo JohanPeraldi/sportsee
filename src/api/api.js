@@ -18,7 +18,6 @@ const isMockedData = Boolean(process.env.REACT_APP_MOCKEDDATA);
  * @returns { Object.<firstName: String, scoreData: Integer, keyData: Object.<calorieCount: Integer, proteinCount: Integer, carbohydrateCount: Integer, lipidCount: Integer>> }
  */
 export async function getUserData(id) {
-  const currentUser = USER_MAIN_DATA.find((user) => user.id === Number(id));
   if (!isMockedData) {
     try {
       const response = await axios.get(baseUrl + id);
@@ -42,19 +41,19 @@ export async function getUserData(id) {
 
       return null;
     }
-  } else {
-    const { firstName } = currentUser.userInfos;
-    const { score } = currentUser;
-    const scorePercentage = score * 100;
-    const scoreData = {
-      name: 'Score',
-      percentage: scorePercentage,
-      fill: '#ff0000',
-    };
-    const { keyData } = currentUser;
-
-    return { firstName, scoreData, keyData };
   }
+  // Code below runs only if fetching mocked data
+  const currentUser = USER_MAIN_DATA.find((user) => user.id === Number(id));
+  const { firstName } = currentUser.userInfos;
+  const { score, keyData } = currentUser;
+  const scorePercentage = score * 100;
+  const scoreData = {
+    name: 'Score',
+    percentage: scorePercentage,
+    fill: '#ff0000',
+  };
+
+  return { firstName, scoreData, keyData };
 }
 
 /**
@@ -85,7 +84,7 @@ export async function getActivityInfo(id) {
       return null;
     }
   }
-
+  // Code below runs only if fetching mocked data
   const currentUserActivityData = USER_ACTIVITY.find(
     (user) => user.userId === Number(id)
   );
@@ -130,7 +129,7 @@ export async function getAverageSessionLength(id) {
       return null;
     }
   }
-
+  // Code below runs only if fetching mocked data
   const currentUserAverageSessions = USER_AVERAGE_SESSIONS.find(
     (user) => user.userId === Number(id)
   );
@@ -175,7 +174,7 @@ export async function getPerformanceData(id) {
       return null;
     }
   }
-
+  // Code below runs only if fetching mocked data
   const currentUserPerformanceData = USER_PERFORMANCE.find(
     (user) => user.userId === Number(id)
   );
