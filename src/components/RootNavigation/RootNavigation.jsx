@@ -10,14 +10,12 @@ import styles from './RootNavigation.module.scss';
  * @returns { HTMLElement }
  */
 export default function RootNavigation() {
-  // const [mockedData, setMockedData] = useState(true);
-  const mockedData = useContext(DataContext);
-  // const mockedData = false;
+  const { isMockedData } = useContext(DataContext);
 
   return (
     <div className={styles.wrapper}>
       <h1 className={styles.title}>Sélectionnez un profil utilisateur</h1>
-      {!mockedData && (
+      {!isMockedData && (
         <>
           <h2>Utilisateurs réels</h2>
           <nav className={styles.nav}>
@@ -32,7 +30,7 @@ export default function RootNavigation() {
           </nav>
         </>
       )}
-      {mockedData && (
+      {isMockedData && (
         <>
           <h2>Utilisateurs factices</h2>
           <nav className={styles.nav}>
