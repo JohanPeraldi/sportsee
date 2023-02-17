@@ -1,5 +1,10 @@
 @import '../../scss/abstracts/_variables.scss';
 
+.wrapper {
+  display: flex;
+  justify-content: center;
+}
+
 .radar {
   grid-row: 3/4;
   grid-column: 2/3;

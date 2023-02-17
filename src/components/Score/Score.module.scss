@@ -1,6 +1,10 @@
 @import '../../scss/abstracts/_variables.scss';
 
 .wrapper {
+  /* display:flex & justify-content: center are important
+  to keep the text centered inside the score red arc */
+  display: flex;
+  justify-content: center;
   position: relative;
   grid-row: 3/4;
   grid-column: 3/4;
@@ -12,8 +16,8 @@
 
 .score-percentage {
   position: absolute;
-  top: 20%;
-  left: 33%;
+  top: 24%;
+  left: 38%;
   font-size: 26px;
   font-weight: 700;
   color: $color-text-md-dark;

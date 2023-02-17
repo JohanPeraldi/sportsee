@@ -27,10 +27,7 @@ export default function Score(props) {
         className={styles.chart}
         width={258}
         height={263}
-        cx={115}
-        cy={135}
         innerRadius={90}
-        outerRadius={90}
         barSize={10}
         data={[data]}
         /* A startAngle of 90 corresponds to the "12 o'clock" position on the chart circle. An endAngle value is necessary to build an arc that is proportional to the user's score percentage. */

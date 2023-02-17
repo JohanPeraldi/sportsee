@@ -1,6 +1,8 @@
 @import '../../scss/abstracts/_variables.scss';
 
 .wrapper {
+  display: flex;
+  justify-content: center;
   position: relative;
   grid-column: span 3;
   background-color: $color-bgd-xx-light;
@@ -12,7 +14,7 @@
 .title {
   position: absolute;
   top: 24px;
-  left: 32px;
+  left: 5%;
   font-size: 15px;
   font-weight: 500;
 }
