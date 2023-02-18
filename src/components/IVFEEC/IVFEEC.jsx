@@ -34,6 +34,7 @@ export default function IVFEEC(props) {
           dy={5}
           stroke="white"
           tickLine={false}
+          textAnchor="middle"
         />
         <PolarRadiusAxis axisLine={false} tick={false} />
         <Radar

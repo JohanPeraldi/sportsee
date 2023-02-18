@@ -26,3 +26,9 @@
   font-weight: 500;
   cursor: pointer;
 }
+
+@media screen and (max-width: 1279px) {
+  .nav {
+    padding: 0 4rem;
+  }
+}

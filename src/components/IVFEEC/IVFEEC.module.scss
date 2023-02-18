@@ -11,3 +11,9 @@
   background: $color-text-md-dark;
   border-radius: $border-radius;
 }
+
+@media screen and (max-width: 1279px) {
+  .wrapper {
+    grid-row: 3/4;
+  }
+}

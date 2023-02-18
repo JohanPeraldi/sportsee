@@ -43,3 +43,9 @@ li span {
 li > svg {
   margin-right: 10px !important;
 }
+
+@media screen and (max-width: 1279px) {
+  .title {
+    left: 10%;
+  }
+}

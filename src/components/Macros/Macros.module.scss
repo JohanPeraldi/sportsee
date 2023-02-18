@@ -48,3 +48,12 @@
   font-size: 14px;
   font-weight: 500;
 }
+
+@media screen and (max-width: 1279px) {
+  .macros {
+    grid-row: 4/5;
+    grid-column: 1/4;
+    flex-direction: initial;
+    margin-left: 0;
+  }
+}
